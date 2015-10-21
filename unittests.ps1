@@ -33,8 +33,10 @@ Describe "Get-LastVersions" {
         }
 
         It "Gets latest 2 version" {
-            (Get-LastVersions "TestDrive:\" 2)[0] | Should Be '2015.3.0'
-            (Get-LastVersions "TestDrive:\" 2)[1] | Should Be '2015.5.0'
+            $Result = Get-LastVersions "TestDrive:\" 2
+
+            $Result[0] | Should Be '2015.3.0'
+            $Result[1] | Should Be '2015.5.0'
         }
     }
 
@@ -53,8 +55,10 @@ Describe "Get-LastVersions" {
         }
 
         It "Gets latest 2 version" {
-            (Get-LastVersions "TestDrive:\" 2)[0] | Should Be '2018.0.0'
-            (Get-LastVersions "TestDrive:\" 2)[1] | Should Be '2019.0.0'
+            $Result = Get-LastVersions "TestDrive:\" 2
+
+            $Result[0] | Should Be '2018.0.0'
+            $Result[1] | Should Be '2019.0.0'
         }
     }
 
@@ -68,8 +72,9 @@ Describe "Get-LastVersions" {
         }
 
         It "Gets latest 2 version" {
-            (Get-LastVersions "TestDrive:\" 2)[0] | Should Be '2015.2.0'
-            (Get-LastVersions "TestDrive:\" 2)[1] | Should Be '2016.0.0'
+            $Result = Get-LastVersions "TestDrive:\" 2
+            $Result[0] | Should Be '2015.2.0'
+            $Result[1] | Should Be '2016.0.0'
         }
     }
 }
