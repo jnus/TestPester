@@ -10,7 +10,7 @@ function RunUnitTests
 
     Import-Module $here\Pester.3.3.11\tools\pester.psm1 -ErrorAction Stop
 
-    $testResults = Invoke-Pester -Path $Path -PassThru
+    $testResults = Invoke-Pester -Path $Path -PassThru -OutputFile Test.xml -OutputFormat NUnitXml
 
     if ($testResults.FailedCount -gt 0)
     {
