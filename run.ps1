@@ -14,8 +14,9 @@ function RunUnitTests
 
     # Upload results to AppVeyor build server. For TeamCity, enable build feature 'XML report processing'
     if($($env:APPVEYOR_JOB_ID)) {
+        Write-Host "Pushing test results to AppVeyor"
         $wc = New-Object 'System.Net.WebClient'
-        $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\Test.xml))
+        $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\Test.xml))
     }
 
     if ($testResults.FailedCount -gt 0)
